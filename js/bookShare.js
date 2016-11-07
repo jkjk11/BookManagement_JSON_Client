@@ -66,7 +66,7 @@ function bookShare(){
 
                 for(var i=0; i<result.length; i++ ) {
 
-                    var tr = $("<tr></tr>")
+                    var tr = $("<tr></tr>").attr("data-isbn", result[i].isbn);
                     var img = $("<img width='170px' height='230px'>").attr("src", result[i].img);
                     var imgTd = $("<td width='240px'></td>").append(img);
                     var titleTd = $("<td></td>").text(result[i].title);
@@ -111,20 +111,18 @@ function bookShare(){
 }
 
 function shareStatus() {
-    alert('대여가능 함수 들어옴');
+    alert('대여상태 함수 들어옴');
     $.ajax({
         url: "http://localhost:7070/book/shareStatus",
         type: "GET",
         dataType: "jsonp",
         jsonp:"callback",
         data:{
-            reviewContent: $("#reviewContent").val(),
-            myIsbn: localStorage.myIsbn
+            isbn: $(this).parent().parent().attr("data-isbn")
         },
         success: function (result) {
             alert("회원님의 서평이 등록되었습니다.");
-            $("#reviewContent").val(" ");
-            location.reload();
+
 
         },
         error: function () {
