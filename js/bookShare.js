@@ -71,20 +71,20 @@ function bookShare(){
                     var imgTd = $("<td width='240px'></td>").append(img);
                     var titleTd = $("<td></td>").text(result[i].title);
                     var authorTd = $("<td></td>").text(result[i].author);
-                    var rstatusTd = $("<td width='80px'><input type='button' value='대여가능' class='btn-success' onclick='shareStatus()'></td>");
+
+                    var rstatusTd = $("<td width='80px'></td>");
+                    var rentBtn = $("<input type='button' class='btn-success' onclick='shareStatus(this)'>");
+
+                    if(result[i].rstatus == "대여중"){
+                        rentBtn.attr("value", "대여중");
+                        rentBtn.attr("disabled", true);
+                    } else{
+                        rentBtn.attr("value", "대여가능");
+                    }
+
+                    rstatusTd.append(rentBtn);
+
                     var midTd = $("<td></td>").text(result[i].mid);
-
-                    //var deleteTd=$("<td width='80px'><input type='button' value='삭제' class='btn-xs, btn-danger' onclick='deleteRow(this)'> </td>");
-                    //var updateTd=$("<td width='80px'><input type='button' value='수정' class='btn-xs, btn-primary' onclick='updateRow(this)'> </td>");
-                    //var reviewTd=$("<td width='80px'><input type='button' value='서평보기' class='btn-xs, btn-success' onclick='reviewLink(this)'> </td>");
-
-                    //titleTd.on("click", detailInfo);
-
-                    // var updatebtn=$("<input/>").attr("type", "button").attr("value", "수정");
-
-
-               //     var updatebtnTd=$("<td></td>").append(updatebtn);
-
 
                     tr.append(imgTd);
                     tr.append(titleTd);
@@ -110,7 +110,7 @@ function bookShare(){
 
 }
 
-function shareStatus() {
+function shareStatus(obj) {
     alert('대여상태 함수 들어옴');
     $.ajax({
         url: "http://localhost:7070/book/shareStatus",
@@ -118,11 +118,16 @@ function shareStatus() {
         dataType: "jsonp",
         jsonp:"callback",
         data:{
-            isbn: $(this).parent().parent().attr("data-isbn")
+            isbn: $(obj).parent().parent().attr("data-isbn"),
+            lid: myid
         },
         success: function (result) {
-            alert("회원님의 서평이 등록되었습니다.");
+            alert("회원님이 책을 대여하였습니다.");
+            console.log(myid);
 
+            $(obj).parent().parent().find("td:nth-child(4)").text(myid);
+            $(obj).parent().parent().find("td:last").text('대여중');
+            //$(obj).parent().parent().find("td:last >input").val('대여 불가능');
 
         },
         error: function () {

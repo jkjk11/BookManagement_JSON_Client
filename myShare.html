@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>도서검색 리스트</title>
+    <title>나의 도서 현황</title>
 
     <!-- jQuery CDN -->
     <script
@@ -26,7 +26,7 @@
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
 
-    <script src="js/list.js"></script>
+    <script src="js/myShare.js"></script>
 
 </head>
 
@@ -47,8 +47,8 @@
             <ul class="nav navbar-nav navbar-right">
             </ul>
             <span class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search..." id="keyword"
-                   onkeyup="searchBook()">
+            <input type="text" class="form-control" placeholder="Search..." id="shareKeyword"
+                   onkeyup="bookShare()">
           </span>
         </div>
     </div>
@@ -58,28 +58,29 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="insert.html">도서 입력 <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="list.html">도서 검색 <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="bookShare.html">대여도서 검색 <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="myShare.html">나의 도서 대여/반납 현황<span class="sr-only">(current)</span></a></li>
             </ul>
         </div>
-    </div>
-</div>
 
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <div class="col-lg-12 text-center">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-        <div class="row">
+            <h2 class="sub-header">나의 도서현황</h2>
+            <div class="table-responsive">
+                <table class="table table-striped" id="myStatus">
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-lg-12 text-center">
-                <div id="success"></div>
-                <button type="submit" class="btn btn-xl">Send Message</button>
+                    <thead>
+                    <tr>
+                        <th>제목</th>
+                        <th>저자</th>
+                        <th>대여/반납</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="bodyList">
+                    </tbody>
+
+                </table>
             </div>
         </div>
     </div>
