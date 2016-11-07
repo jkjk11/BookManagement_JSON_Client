@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>도서관리 시스템</title>
+
+    <!-- jQuery CDN -->
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CDN -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <![endif]-->
+
+    <script src="js/signup.js"></script>
+    <script src="js/login.js"></script>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="main.html">JUDY LIBRARY</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="list.html"><B>도서관리</B></a>
+                </li>
+                <li>
+                    <a href="bookShare.html"><B>대여 및 반납관리</B></a>
+                </li>
+                <li>
+                    <a href="reviewSearch.html"><B>서평관리</B></a> <br><br>
+                </li>
+                <li>
+                    <a id="login" data-target="#loginmodal" data-toggle="modal"><b>로그인</b></a>
+                </li>
+                <li>
+                    <a id="signup" data-target="#signupmodal" data-toggle="modal"><b>회원가입</b></a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!--로그인 modal 창-->
+<div id="loginmodal" class="modal fade">
+    <div class="modal-dialog">
+        <!--header-->
+        <div class="modal-header">
+            <!--닫기버튼-->
+            <button type="button" class="close" data-dismiss="modal" style="color: white">X</button>
+            <!--header title-->
+            <h2 class="modal-title" style="color: white">로그인</h2>
+        </div>
+
+        <!--body-->
+        <div class="modal-body">
+            <div class="joinFormDiv">
+                <h5 style="color: white">ID</h5>
+                <input id="lid" type="text"><br>
+                <h5 style="color: white">PASSWORD</h5>
+                <input id="lpassword" type="password">
+            </div>
+        </div>
+
+        <!--footer-->
+        <div class="modal-footer">
+            <button id="dbJoinBtn" class="btn btn-warning" data-dismiss="modal" onclick="login()">로그인</button>
+        </div>
+    </div>
+</div>
+
+<!--회원가입 modal 창-->
+<div id="signupmodal" class="modal fade">
+    <div class="modal-dialog">
+        <!--header-->
+        <div class="modal-header">
+            <!--닫기버튼-->
+            <button type="button" class="close" data-dismiss="modal" style="color: white">X</button>
+            <!--header title-->
+            <h2 class="modal-title" style="color: white">회원가입</h2>
+        </div>
+
+        <!--body-->
+        <div class="modal-body">
+            <div class="signupFormDiv">
+                <h5 style="color: white">ID</h5>
+                <input id="mid" type="text"><br>
+                <h5 style="color: white">EMAIL</h5>
+                <input id="memail" type="text"><br>
+                <h5 style="color: white">PASSWORD</h5>
+                <input id="mpassword" type="text">
+            </div>
+        </div>
+
+        <!--footer-->
+        <div class="modal-footer">
+            <button id="signupBtn" class="btn btn-warning" data-dismiss="modal" onclick="signup()">회원가입 완료</button>
+        </div>
+    </div>
+</div>
+
+<!-- Header Carousel -->
+<header id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="fill" style="background-image:url('img/1111.jpg');"></div>
+            <div class="carousel-caption">
+                <h3>1</h3>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('img/2222.jpg');"></div>
+            <div class="carousel-caption">
+                <h3>2</h3>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('img/3333.jpg');"></div>
+            <div class="carousel-caption">
+                <h3>3</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+</header>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Marketing Icons Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                JUDY LIBRARY
+            </h1>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-check"></i><b>도서 관리</b></h4>
+                </div>
+                <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                    <a href="list.html" class="btn btn-default">GO!!!</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-gift"></i><b>도서 대여 및 반납</b></h4>
+                </div>
+                <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                    <a href="#" class="btn btn-default">GO!!!</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-compass"></i><b>서평 등록</b></h4>
+                </div>
+                <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                    <a href="reviewSearch.html" class="btn btn-default">GO!!!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Portfolio Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Portfolio Heading</h2>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <a href="portfolio-item.html">
+                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <a href="portfolio-item.html">
+                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <a href="portfolio-item.html">
+                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <a href="portfolio-item.html">
+                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <a href="portfolio-item.html">
+                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <a href="portfolio-item.html">
+                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            </a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Features Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Modern Business Features</h2>
+        </div>
+        <div class="col-md-6">
+            <p>The Modern Business template by Start Bootstrap includes:</p>
+            <ul>
+                <li><strong>Bootstrap v3.3.7</strong>
+                </li>
+                <li>jQuery v1.11.1</li>
+                <li>Font Awesome v4.2.0</li>
+                <li>Working PHP contact form with validation</li>
+                <li>Unstyled page elements for easy customization</li>
+                <li>17 HTML pages</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+        </div>
+        <div class="col-md-6">
+            <img class="img-responsive" src="http://placehold.it/700x450" alt="">
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Call to Action Section -->
+    <div class="well">
+        <div class="row">
+            <div class="col-md-8">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2014</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Script to Activate the Carousel -->
+<script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+</script>
+
+</body>
+
+</html>
